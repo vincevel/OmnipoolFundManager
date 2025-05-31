@@ -1,0 +1,151 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en-US"  class="supernova"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="alternate" type="application/json+oembed" href="https://www.jotform.com/oembed/?format=json&amp;url=https%3A%2F%2Fform.jotform.com%2F200938415386056" title="oEmbed Form">
+<link rel="alternate" type="text/xml+oembed" href="https://www.jotform.com/oembed/?format=xml&amp;url=https%3A%2F%2Fform.jotform.com%2F200938415386056" title="oEmbed Form">
+<meta property="og:title" content="Email Registration Info" >
+<meta property="og:url" content="https://form.jotform.com/200938415386056" >
+<meta property="og:description" content="Please click the link to complete this form.">
+<meta name="slack-app-id" content="AHNMASS8M">
+<link rel="shortcut icon" href="https://cdn.jotfor.ms/favicon.ico">
+<link rel="canonical" href="https://form.jotform.com/200938415386056" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=1" />
+<meta name="HandheldFriendly" content="true" />
+<title>Email Registration Info</title>
+<link href="https://cdn.jotfor.ms/static/formCss.css?3.3.16671" rel="stylesheet" type="text/css" />
+<link type="text/css" rel="stylesheet" href="https://cdn.jotfor.ms/css/styles/nova.css?3.3.16671" />
+<link type="text/css" media="print" rel="stylesheet" href="https://cdn.jotfor.ms/css/printForm.css?3.3.16671" />
+<link type="text/css" rel="stylesheet" href="https://cdn.jotfor.ms/themes/CSS/566a91c2977cdfcd478b4567.css?"/>
+<style type="text/css">
+    .form-label-left{
+        width:150px;
+    }
+    .form-line{
+        padding-top:12px;
+        padding-bottom:12px;
+    }
+    .form-label-right{
+        width:150px;
+    }
+    body, html{
+        margin:0;
+        padding:0;
+        background:#fff;
+    }
+
+    .form-all{
+        margin:0px auto;
+        padding-top:0px;
+        width:690px;
+        color:#555 !important;
+        font-family:"Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Verdana, sans-serif;
+        font-size:14px;
+    }
+</style>
+
+<style type="text/css" id="form-designer-style">
+    /* Injected CSS Code */
+.form-label.form-label-auto { display: block; float: none; text-align: left; width: inherit; } /*__INSPECT_SEPERATOR__*/
+    /* Injected CSS Code */
+</style>
+
+<script src="https://cdn.jotfor.ms/static/prototype.forms.js" type="text/javascript"></script>
+<script src="https://cdn.jotfor.ms/static/jotform.forms.js?3.3.16671" type="text/javascript"></script>
+<script type="text/javascript">
+  JotForm.init(function(){
+if (window.JotForm && JotForm.accessible) $('input_3').setAttribute('tabindex',0);
+  JotForm.newDefaultTheme = false;
+      JotForm.alterTexts(undefined);
+  JotForm.clearFieldOnHide="disable";
+  JotForm.submitError="jumpToFirstError";
+    /*INIT-END*/
+  });
+
+   JotForm.prepareCalculationsOnTheFly([null,{"name":"emailRegistration","qid":"1","text":"Email Registration Info","type":"control_head"},{"name":"search","qid":"2","text":"Search","type":"control_button"},{"description":"","name":"searchFor3","qid":"3","subLabel":"sublabel","text":"Search for User","type":"control_textbox"},{"name":"divider","qid":"4","type":"control_divider"},{"description":"","name":"emailUser","qid":"5","text":"Email User","type":"control_matrix"},{"name":"divider6","qid":"6","type":"control_divider"}]);
+   setTimeout(function() {
+JotForm.paymentExtrasOnTheFly([null,{"name":"emailRegistration","qid":"1","text":"Email Registration Info","type":"control_head"},{"name":"search","qid":"2","text":"Search","type":"control_button"},{"description":"","name":"searchFor3","qid":"3","subLabel":"sublabel","text":"Search for User","type":"control_textbox"},{"name":"divider","qid":"4","type":"control_divider"},{"description":"","name":"emailUser","qid":"5","text":"Email User","type":"control_matrix"},{"name":"divider6","qid":"6","type":"control_divider"}]);}, 20); 
+</script>
+</head>
+<body>
+
+<!-- form -->
+
+<form class="jotform-form" action="/sri/dividenduser" method="post" name="" id="" accept-charset="utf-8" autocomplete="on">
+
+  {{ csrf_field() }}
+  <input type="hidden" name="formID" value="200938415386056" />
+  <input type="hidden" id="JWTContainer" value="" />
+  <input type="hidden" id="cardinalOrderNumber" value="" />
+  <div role="main" class="form-all">
+    <ul class="form-section page-section">
+      <li id="cid_1" class="form-input-wide" data-type="control_head">
+        <div class="form-header-group  header-default">
+          <div class="header-text httal htvam">
+            <h2 id="header_1" class="form-header" data-component="header">
+              Email Registration Info
+            </h2>
+          </div>
+        </div>
+      </li>
+      </li>
+      <li class="form-line form-line-column form-col-1" data-type="control_textbox" id="id_3">
+        <label class="form-label form-label-top" id="label_3" for="input_3"> Search for User </label>
+        <div id="cid_3" class="form-input-wide">
+          <span class="form-sub-label-container " style="vertical-align:top">
+            <input type="text" id="input_3" name="email" data-type="input-textbox" class="form-textbox" size="20" value="" data-component="textbox" aria-labelledby="label_3 sublabel_input_3" />
+            <label class="form-sub-label" for="input_3" id="sublabel_input_3" style="min-height:13px" aria-hidden="false"> sublabel </label>
+          </span>
+        </div>
+      </li>
+      <li class="form-line form-line-column form-col-2" data-type="control_button" id="id_2">
+        <div id="cid_2" class="form-input-wide">
+          <div style="text-align:left" data-align="left" class="form-buttons-wrapper  ">
+            <button id="input_2" type="submit" class="form-submit-button" data-component="button" data-content="">
+              Search
+            </button>
+          </div>
+        </div>
+      </li>
+      <li class="form-line" data-type="control_divider" id="id_6">
+        <div id="cid_6" class="form-input-wide">
+          <div data-component="divider" style="border-bottom:1px solid #e6e6e6;height:1px;margin-left:0px;margin-right:0px;margin-top:5px;margin-bottom:5px">
+          </div>
+        </div>
+      </li>
+      <li class="form-line" data-type="control_matrix" id="id_5">
+           @include('common.errors')
+      </li>
+      <li class="form-line" data-type="control_divider" id="id_4">
+        <div id="cid_4" class="form-input-wide">
+          <div data-component="divider" style="border-bottom:1px solid #e6e6e6;height:1px;margin-left:0px;margin-right:0px;margin-top:5px;margin-bottom:5px">
+          </div>
+        </div>
+      </li>
+      <li style="display:none">
+        Should be Empty:
+        <input type="text" name="website" value="" />
+      </li>
+    </ul>
+  </div>
+  <script>
+  JotForm.showJotFormPowered = "new_footer";
+  </script>
+  <script>
+  JotForm.poweredByText = "Powered by JotForm";
+  </script>
+  <input type="hidden" id="simple_spc" name="simple_spc" value="200938415386056" />
+  <script type="text/javascript">
+  document.getElementById("si" + "mple" + "_spc").value = "200938415386056-200938415386056";
+  </script>
+  <div class="formFooter-heightMask">
+  </div>
+  <div class="formFooter f6">
+   
+  </div>
+</form>
+
+  <!-- form -->
+
+</body>
+</html>
+<script type="text/javascript">JotForm.ownerView=true;</script>

@@ -1,0 +1,41 @@
+.bg-info, .bg-info>a {
+    color: #fff!important;
+}
+.bg-info {
+    background-color: #17a2b8!important;
+}
+@media (max-width: 767.98px){
+    .small-box {
+        text-align: center;
+    }
+    
+}
+
+.small-box {
+    border-radius: 0.25rem;
+    box-shadow: 0 0 1px rgb(0 0 0 / 13%), 0 1px 3px rgb(0 0 0 / 20%);
+    display: block;
+    margin-bottom: 20px;
+    position: relative;
+}
+.bg-success, .bg-success>a {
+    color: #fff!important;
+}
+
+.bg-success {
+    background-color: #28a745!important;
+}
+.small-box .icon > i {
+    font-size: 51px;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    transition: -webkit-transform 0.3s linear;
+    transition: transform 0.3s linear;
+    transition: transform 0.3s linear, -webkit-transform 0.3s linear;
+}
+
+.small-box .icon {
+    color: rgba(255, 255, 255, 0.71);
+    z-index: 0;
+}

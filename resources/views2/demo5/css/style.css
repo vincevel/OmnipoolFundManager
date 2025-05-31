@@ -1,0 +1,21 @@
+ 
+
+.table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
+
+   background-color: #f7f4f1;
+   
+   color: black;
+}
+
+
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+  background-color: #F29B2E;
+  color: white;
+}
+
+.table {
+
+	border-color: #0C591E !important;	
+}
+
+ 

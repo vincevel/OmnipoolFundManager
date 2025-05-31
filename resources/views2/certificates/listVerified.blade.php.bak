@@ -1,0 +1,123 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title>Send Joint Venture Certificate</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+ 
+</head>
+
+<body>
+<nav class="navbar navbar-expand-md navbar-dark   bg-success">
+      <a class="navbar-brand" href="#">   Send Joint Venture Certificate </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          
+          
+          <li class="nav-item active">
+            
+          </li>
+          <li class="nav-item">
+           
+          </li>
+          <li class="nav-item">
+           
+          </li>
+          <li class="nav-item dropdown">
+        
+          </li>
+        </ul>
+       
+      </div>
+    </nav>
+      <br>
+<div class="container">
+   @isset($transactions)  
+        @if (count($transactions) > 0)
+            <table   class="border border-secondary form-group">
+                    <tr>
+                        
+                    <td class="border border-secondary">id</td>
+                    <td class="border border-secondary">First Name</td>
+                    <td class="border border-secondary">Last Name</td></td>
+                    <td class="border border-secondary">Amount</td>
+                    <td class="border border-secondary">Investment Type</td>
+                    <td class="border border-secondary">Date Transaction</td>
+                    <td class="border border-secondary">Status</td>
+                    <td class="border border-secondary">  </td>
+                    <td class="border border-secondary">  </td>
+               
+                    </tr>
+            @foreach ($transactions as $transaction)
+            
+                    <!--
+                    <tr>
+                        <td>{{ $transaction }}</td>    
+                    </tr>
+                    -->
+                    
+                    <tr>
+                       
+                            <!--
+                             <td>
+                    <ul class="list-group list-group-horizontal-sm">
+                      <li class="list-group-item">{{ $transaction->id }}</li>
+                      <li class="list-group-item">{{ $transaction->first_name }}</li>
+                      <li class="list-group-item">{{ $transaction->last_name }}</li>
+                      <li class="list-group-item">{{ $transaction->amount }}</li>
+                      <li class="list-group-item">{{ $transaction->investment_type }}</li>
+                      <li class="list-group-item">{{ $transaction->date_transaction }}</li>
+                      <li class="list-group-item">{{ $transaction->status }}</li>
+                    </ul>
+                        </td>
+                        -->
+                        
+                   
+                    <td class="border border-secondary btn btn-light">{{ $transaction->id }}</td>
+                    <td class="border border-secondary btn btn-light">{{ $transaction->first_name }}</td>
+                    <td class="border border-secondary btn btn-light">{{ $transaction->last_name }}</td>
+                    <td class="border border-secondary btn btn-light">{{ $transaction->amount }}</td>
+                    <td class="border border-secondary btn btn-light">{{ $transaction->investment_type }}</td>
+                    <td class="border border-secondary btn btn-light">{{ $transaction->date_transaction }}</td>
+                     <td class="border border-secondary btn btn-light">{{ $transaction->status }}</td>
+                 
+    
+                    <td>
+                     <form action="/sri/certificate/{{ $transaction->id }}" method="GET">
+                        {{ csrf_field() }}
+                        
+                        <button class="btn btn-primary">Generate Cert</button>
+                    </form>
+                    </td>
+                    
+                        <td>
+                        <form action="/sri/certificate/mail/{{ $transaction->id }}" method="POST" >
+                            {{ csrf_field() }}
+                            
+                            <button class="btn btn-info">Mail Cert</button>
+                        </form>
+                        </td>
+                    </tr>
+                    
+                
+          
+            @endforeach
+            </table>
+        @endif
+  @endisset
+  </div>
+ <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+ <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+ </body>
+
+</html>

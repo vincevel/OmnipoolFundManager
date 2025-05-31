@@ -1,0 +1,55 @@
+# Laravel-specific files
+/vendor/
+node_modules/
+public/hot
+public/storage
+storage/*.key
+.env
+.env.backup
+.env.*.backup
+Homestead.yaml
+Homestead.json
+.phpunit.result.cache
+*.log
+
+# IDE and editor files
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Cache and temporary files
+/storage/framework/cache/*
+/storage/framework/sessions/*
+/storage/framework/views/*
+/storage/logs/*
+/bootstrap/cache/*
+!/storage/framework/cache/.gitkeep
+!/storage/framework/sessions/.gitkeep
+!/storage/framework/views/.gitkeep
+!/storage/logs/.gitkeep
+
+# Testing and build files
+/coverage/*
+/build/*
+/tests/Browser/console/*
+/tests/Browser/screenshots/*
+/tests/Browser/source/*
+!/tests/Feature/.gitkeep
+
+# Frontend build files
+npm-debug.log
+yarn-error.log
+/public/mix-manifest.json
+/public/css/*
+/public/js/*
+!/public/css/.gitkeep
+!/public/js/.gitkeep
+
+# Optional: Include if you want flexibility in dependency versions
+# composer.lock
+# package-lock.json

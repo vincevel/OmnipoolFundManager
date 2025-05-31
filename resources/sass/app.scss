@@ -1,0 +1,26 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+//Font awesome
+$fa-font-path:"../webfonts";
+
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+//Adminlte
+@import '~admin-lte/dist/css/adminlte.css';
+
+
+
+@import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "~@fortawesome/fontawesome-free/scss/solid.scss";
+@import "~@fortawesome/fontawesome-free/scss/regular.scss";
+
+// for Duotones need both files
+//@import "./fontawesome/scss/duotone.scss";
+//@import "./fontawesome/scss/_duotone-icons.scss";
+

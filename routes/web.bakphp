@@ -1,0 +1,298 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+
+Route::get('/', function () {
+    //return view('welcome');
+    return redirect('/login');
+});
+
+Route::get('/contact', function()
+{
+    return "hello";
+});
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+
+ 
+Route::get('/viewall', 'App\Http\Controllers\PasswordController@viewall');
+
+
+
+Route::get('/test/', 'App\Http\Controllers\InvestmentController@index');
+
+Route::get('/users/', 'App\Http\Controllers\PasswordController@index');
+
+Route::get('/main3/', 'App\Http\Controllers\InvestmentController@main3');
+
+//redirect route
+Route::get('/main/', 'App\Http\Controllers\InvestmentController@main2')->middleware(['password','auth','agreed','profilecompleted'])->name('main');
+
+Route::post('/mainpost/', 'App\Http\Controllers\InvestmentController@main2')->middleware(['password','auth','agreed','profilecompleted'])->name('mainpost');
+
+
+Route::get('/changepassword','App\Http\Controllers\PasswordController@changePassword')->name('changePassword');
+Route::post('/changepassword','App\Http\Controllers\PasswordController@setPassword')->name('changePassword');
+//actual route
+//Route::get('/main2/{page}', 'InvestmentController@main2')->name('main2');
+
+Route::get('/main2/', 'App\Http\Controllers\InvestmentController@main2')->middleware(['password','auth','agreed'])->name('main2');
+
+
+
+Route::get('/backend/', 'App\Http\Controllers\AdminController@backend');
+
+
+Route::get('/backend2/', 'App\Http\Controllers\AdminController@backend2')->middleware('auth')->name('backend2');
+
+Route::get('/backend3/', 'App\Http\Controllers\AdminController@backend3')->middleware('auth')->name('backend3');
+
+Route::get('/usermail', 'App\Http\Controllers\RegUserController@index');
+Route::get('/usermailerror', 'App\Http\Controllers\RegUserController@indexError');
+Route::post('/usermail', 'App\Http\Controllers\RegUserController@search');
+Route::get('/sendregmail', 'App\Http\Controllers\RegMailController@prepareMail');
+Route::post('/sendregmail', 'App\Http\Controllers\RegMailController@prepareMail');
+Route::post('/sendregmail/send', 'App\Http\Controllers\RegMailController@send');
+
+
+Route::get('/payouts', 'App\Http\Controllers\PayoutsController@index');
+Route::post('/payouts/{payout}', 'App\Http\Controllers\PayoutsController@showPayout2');
+
+
+
+
+Route::resource('/certificate', 'App\Http\Controllers\CertificateController');
+
+Route::post('/certificate/mail/{id}', 'App\Http\Controllers\RegMailController@prepareMailCert');
+Route::post('/certificate/mailsend', 'App\Http\Controllers\RegMailController@certSend');
+Route::get('/certificate/alphabet/{letter}', 'App\Http\Controllers\CertificateController@showAlphabet');
+
+
+Route::post('/usercertificate', 'App\Http\Controllers\CertificateController@showUserCertificate');
+Route::post('/usercertificatebackend', 'App\Http\Controllers\CertificateController@showUserCertificateBackend');
+
+Route::post('/profile/save', 'App\Http\Controllers\ProfileController@save')->name('profile.save');
+Route::get('/profile/edit', 'App\Http\Controllers\ProfileController@edit')->name('profile.edit');
+
+Route::post('/profile2/save', 'App\Http\Controllers\ProfileController2@save')->name('profile2.save');
+Route::get('/profile2/edit', 'App\Http\Controllers\ProfileController2@edit')->name('profile2.edit');
+
+Route::resource('/transactions', 'App\Http\Controllers\TransactionController');
+
+Route::get('/viewuser', 'App\Http\Controllers\ViewUserController@index')->middleware('auth');
+Route::get('/viewusererror', 'App\Http\Controllers\ViewUserController@indexError');
+Route::post('/viewuser', 'App\Http\Controllers\ViewUserController@search');
+Route::get('/viewuser/{user}', 'App\Http\Controllers\ViewUserController@show');
+Route::get('/viewuser/list/{user}', 'App\Http\Controllers\ViewUserController@list');
+
+
+
+Route::get('/dividenduser', 'App\Http\Controllers\DividendUserController@index');
+Route::get('/dividendusererror', 'App\Http\Controllers\DividendUserController@indexError');
+Route::post('/dividenduser', 'App\Http\Controllers\DividendUserController@search');
+Route::get('/dividenduser/{user}', 'App\Http\Controllers\DividendUserController@show');
+Route::get('/dividenduser/list/{user}', 'App\Http\Controllers\DividendUserController@list')->name('showuser');
+Route::get('/dividenduser/list2/{user}', 'App\Http\Controllers\DividendUserController@list2')->name('showuser2');
+Route::get('/dividenduser/list3/{user}', 'App\Http\Controllers\DividendUserController@list3')->name('showuser3');
+Route::get('/dividenduser/list4/{user}', 'App\Http\Controllers\DividendUserController@list4')->name('showuser4');
+
+
+
+
+Route::get('/dividenduserb/list5b/{user}', 'App\Http\Controllers\DividendUserController2@list5b')->name('showuser5');
+
+
+Route::get('/dividenduserb/list5bRental/{user}', 'App\Http\Controllers\DividendUserController2@list5bRental')->name('showuser5rental');
+ 
+Route::get('/dividenduser2/{user}', 'App\Http\Controllers\DividendUserController@show2');
+Route::get('/dividendusermerge/{user}', 'App\Http\Controllers\DividendUserController@showmerge'); 
+ 
+Route::post('/dividenduseradd', 'App\Http\Controllers\DividendUserController@store');
+Route::post('/dividenduseradd2', 'App\Http\Controllers\DividendUserController@storeweb2');
+Route::get('/dividenduser/reinvest/{user}', 'App\Http\Controllers\DividendUserController@showReinvest');
+Route::post('/dividenduser/reinvest', 'App\Http\Controllers\DividendUserController@storeReinvest');
+
+Route::post('/mergeaccounts', 'App\Http\Controllers\DividendUserController@mergeaccounts');
+
+Route::get('/staging/showstaging', 'App\Http\Controllers\StagingController@index');
+Route::get('/staging/transfer', 'App\Http\Controllers\StagingController@transfer2');
+Route::patch('/staging/transfer/{id}', 'App\Http\Controllers\StagingController@transferId')->name('test.one');
+Route::patch('/staging/delete/{id}', 'App\Http\Controllers\StagingController@deleteId')->name('staging.delete');
+
+
+
+Route::get('/staging/transfer/clear', 'App\Http\Controllers\StagingController@clear');
+Route::get('/staging', 'App\Http\Controllers\StagingController@index');
+
+
+Route::get('/verify/', 'App\Http\Controllers\VerificationController@index');
+
+Route::get('/verifyuser/{user}', 'App\Http\Controllers\VerificationController@indexuser')->name('verification.userverify');
+Route::get('/verifyuser/deleteentry/{id}', 'App\Http\Controllers\VerificationController@indexdeleteuserentry')->name('verification.indexdeleteuserentry');
+
+ 
+ 
+Route::get('/verify/org', 'App\Http\Controllers\VerificationController@indexOrg'); 
+
+Route::get('/verify/org/aski', 'App\Http\Controllers\VerificationController@indexOrgAski'); 
+Route::get('/verify/org/pccc', 'App\Http\Controllers\VerificationController@indexOrgPCCC'); 
+Route::get('/verify/org/uspd', 'App\Http\Controllers\VerificationController@indexOrgUSPD'); 
+Route::get('/verify/org/nscc', 'App\Http\Controllers\VerificationController@indexOrgNSCC'); 
+Route::get('/verify/org/ooi', 'App\Http\Controllers\VerificationController@indexOrgOoi'); 
+Route::get('/verify/org/ooi2', 'App\Http\Controllers\VerificationController@indexOrgOoi2'); 
+ 
+Route::get('/verify/org/marzan', 'App\Http\Controllers\VerificationController@indexOrgMarzan'); 
+Route::get('/verify/org/madela', 'App\Http\Controllers\VerificationController@indexOrgMadela'); 
+
+//DIVIDENDS GENERATION
+Route::get('/verify/org/yearly', 'App\Http\Controllers\VerificationController@indexOrgYearly'); 
+Route::get('/verify/org/yearlyrentals', 'App\Http\Controllers\VerificationController@indexOrgYearlyRentals'); 
+
+Route::get('/verify/org/loader1', 'App\Http\Controllers\VerificationController@loader1'); 
+ 
+Route::get('/verify/sub', 'App\Http\Controllers\VerificationController@subIndex');
+Route::get('/verify/sub/search', 'App\Http\Controllers\VerificationController@subSearch')->name('subverification.search');
+
+Route::get('/verify/sub/subfilterpending', 'App\Http\Controllers\VerificationController@subfilterpending')->name('subverification.subfilterpending');
+
+
+Route::patch('/verify/delete/{id}', 'App\Http\Controllers\VerificationController@deleteId')->name('verification.delete');
+Route::patch('/verify/verify/{id}', 'App\Http\Controllers\VerificationController@verifyId')->name('verification.verify');
+Route::patch('/verify/pending/{id}', 'App\Http\Controllers\VerificationController@pendingId')->name('verification.pending');
+
+
+Route::patch('/verify/delete/user/{id}', 'App\Http\Controllers\VerificationController@deleteIdFromUser')->name('verification.deleteidfromuser');
+
+Route::get('/test/testsend', 'App\Http\Controllers\TestController@testSend');
+Route::post('/test/testload', 'App\Http\Controllers\TestController@testLoad');
+Route::post('/test/testre', 'App\Http\Controllers\TestController@testRe');
+
+Route::get('/verify/search', 'App\Http\Controllers\VerificationController@search')->name('verification.search');
+
+Route::get('/verify/filterpending', 'App\Http\Controllers\VerificationController@filterpending')->name('verification.filterpending');
+
+ 
+
+Route::get('/reinvestments/process', 'App\Http\Controllers\ReinvestmentController@processReinvestments');
+
+Route::post('/checking/notifyuser', 'App\Http\Controllers\CheckingController@notifyUser');
+
+Route::get('/reports/summary', 'App\Http\Controllers\ReportController@summary');
+
+Route::post('/mchat/testResponse', 'App\Http\Controllers\ManyChatController@testResponse');
+
+//For TESTING ONLY
+Route::post('/mchat/testResponseSub', 'App\Http\Controllers\ManyChatController@testResponseSub');
+
+Route::post('/mchat/selfService', 'App\Http\Controllers\ManyChatControllerSelfService@informDeposit');
+
+
+Route::post('/mchat/remitsss', 'App\Http\Controllers\ManyChatController@remitsss');
+Route::post('/mchat/remitpagibig', 'App\Http\Controllers\ManyChatController@remitpagibig');
+
+Route::post('/mchat/withdraw', 'App\Http\Controllers\ManyChatController@testResponseWithdraw');
+//Route::get('/mchat/withdrawmanual', 'ManyChatController@withdrawManual');
+
+
+Route::post('/mchat/sssreg', 'App\Http\Controllers\ManyChatControllerSSSPI@sssReg');
+Route::post('/mchat/pagibigreg', 'App\Http\Controllers\ManyChatControllerSSSPI@pagibigReg');
+
+Route::post('/mchat/reinvest', 'App\Http\Controllers\ManyChatController@reinvest');
+
+Route::post('/mchat/reinvestssspagibig', 'App\Http\Controllers\ManyChatControllerReinvestSSSPagibig@reinvestssspagibig');
+Route::post('/mchat/reinvest2', 'App\Http\Controllers\ManyChatControllerReinvestSSSPagibig@reinvest2');
+
+
+Route::get('/mchat/manual', 'App\Http\Controllers\ManyChatControllerManual@manual3');
+
+
+
+Route::get('/reg_counter', 'App\Http\Controllers\BatchRegistrationController@getId');
+Route::post('/reg_counter/set', 'App\Http\Controllers\BatchRegistrationController@setId');
+//Route::get('/srijvagreement', 'App\Http\Controllers\AgreementController@showAgreement');
+//Route::post('/srijvagreement/set', 'App\Http\Controllers\AgreementController@setAgreement')->name('agreement.set');
+
+
+//for withdraw
+Route::get('/withdrawverify/', 'App\Http\Controllers\WithdrawVerificationController@index'); 
+Route::get('/withdrawverify', 'App\Http\Controllers\WithdrawVerificationController@index');
+Route::get('/withdrawverify/search', 'App\Http\Controllers\WithdrawVerificationController@search')->name('withdrawverification.search');
+Route::get('/withdrawverify/filterpending', 'App\Http\Controllers\WithdrawVerificationController@filterpending')->name('withdrawverification.filterpending');
+
+Route::patch('/withdrawverify/delete/{id}', 'App\Http\Controllers\WithdrawVerificationController@deleteId')->name('withdrawverification.delete');
+Route::patch('/withdrawverify/verify/{id}', 'App\Http\Controllers\WithdrawVerificationController@verifyId')->name('withdrawverification.verify');
+Route::patch('/withdrawverify/pending/{id}', 'App\Http\Controllers\WithdrawVerificationController@pendingId')->name('withdrawverification.pending');
+
+Route::get('/register/', 'App\Http\Controllers\RegistrationController@main')->name('register2');
+
+Route::get('/register1/', 'App\Http\Controllers\RegistrationController@main2')->name('register1');
+
+
+Route::post('/orgnetreport', 'App\Http\Controllers\OrgReportController@orgnetreport');
+Route::get('/orgnetreportmain', 'App\Http\Controllers\OrgReportController@orgnetreportmain');
+
+
+Route::post('/orgverifiedreport', 'App\Http\Controllers\OrgVerifiedReportController@orgverifiedreport');
+Route::get('/orgverifiedreportmain', 'App\Http\Controllers\OrgVerifiedReportController@orgverifiedreportmain');
+
+
+//DIVIDENDS TO RELEASE REPORT
+Route::get('/orgdividendstoreleasereport', 'App\Http\Controllers\OrgVerifiedReportController@dividendstoreleasereport');
+Route::get('/orgdividendstoreleasereportrentals', 'App\Http\Controllers\OrgVerifiedReportController@dividendstoreleasereportrentals');
+
+Route::get('/rentalstoreleasereportmarzan', 'App\Http\Controllers\OrgVerifiedReportController@rentalstoreleasereportmarzan');
+
+Route::get('/rentalstoreleasereportmaddela', 'App\Http\Controllers\OrgVerifiedReportController@rentalstoreleasereportmaddela');
+
+Route::get('/manageorg', 'App\Http\Controllers\ManageOrgController@index');
+Route::patch('/manageorg/edit/{id}', 'App\Http\Controllers\ManageOrgController@editId')->name('manageorg.edit');
+Route::patch('/manageorg/delete/{id}', 'App\Http\Controllers\ManageOrgController@deleteId')->name('manageorg.delete');
+Route::patch('/manageorg/add', 'App\Http\Controllers\ManageOrgController@addId')->name('manageorg.add');
+
+
+Route::post('/mchat/gswepdep', 'App\Http\Controllers\ManyChatController@gswepdep');
+Route::post('/jform/register', 'App\Http\Controllers\JfController@register');
+Route::get('/jform/registertest', 'App\Http\Controllers\JfController@registertest');
+
+Route::post('/jform/registerswepp', 'App\Http\Controllers\JfSweppController@registerswepp');
+Route::post('/jform/registergyrt', 'App\Http\Controllers\JfGyrtController@registergyrt');
+
+Route::post('/mchat/registration', 'App\Http\Controllers\ManyChatRegistrationController@registeruser');
+
+Route::post('/jform/gsweppdep', 'App\Http\Controllers\JfGSweppDepController@gsweppdep');
+
+Route::post('/mchat/shortregistration', 'App\Http\Controllers\ManyChatRegistrationController@shortregisteruser');
+
+Route::get('/forms/showregistrationform/{id}', 'App\Http\Controllers\FormsController@showRegistrationForm')->name('jfregform.show');
+
+
+Route::post('/jform/shortregister', 'App\Http\Controllers\JfController@shortRegister');
+Route::post('/jform/shortregisterupdate', 'App\Http\Controllers\JfController@shortRegisterUpdate');
+Route::post('/jform/shortregister2', 'App\Http\Controllers\JfController@shortRegister2');
+
+Route::get('/jform/gsweppdeptest', 'App\Http\Controllers\JfGSweppDepController@gsweppdeptest');
+
+
+Route::get('/test/testparent', 'App\Http\Controllers\TestController@findParentTest4');
+
+Route::post('/test/testparent', 'App\Http\Controllers\TestController@findParentTest5');
+
+
+
+//Dividend Release Section
+Route::get('/releasedividends', 'App\Http\Controllers\DividendReleaseController@releasedividends')->name('releasedividends');

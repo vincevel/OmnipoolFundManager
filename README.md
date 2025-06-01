@@ -25,7 +25,7 @@ Customers needed a reliable way to monitor their financial data online, specific
    ```
 2. **Navigate to the Project Directory**:
    ```bash
-   cd your-repo-name
+   cd OmnipoolFundManager
    ```
 3. **Set Up the Database**:
    - Create a MySQL database (e.g., `financial_app`).
